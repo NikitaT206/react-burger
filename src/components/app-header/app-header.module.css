@@ -1,0 +1,19 @@
+.header {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #1C1C21;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  width: 289.15px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
