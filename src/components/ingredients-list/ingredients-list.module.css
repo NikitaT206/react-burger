@@ -1,0 +1,21 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: calc(100vh - 284px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: #2F2F37;
+  margin-bottom: 52px;
+}
+  
+.list::-webkit-scrollbar-thumb {
+  background-color: #8585AD;
+}
