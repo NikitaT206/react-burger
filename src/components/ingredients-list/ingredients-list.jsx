@@ -11,15 +11,9 @@ export default class IngredientsList extends React.Component {
   render() {
     return (
       <ul className={ingredientsListStyles.list}>
-        <li>
-         <IngredientsTypeList title='Булки' ingredients={buns}/>
-        </li>
-        <li>
-         <IngredientsTypeList title='Соусы' ingredients={sauces}/>
-        </li>
-        <li>
-         <IngredientsTypeList title='Начинки' ingredients={mains}/>
-        </li>
+        <IngredientsTypeList title='Булки' ingredients={buns}/>
+        <IngredientsTypeList title='Соусы' ingredients={sauces}/>
+        <IngredientsTypeList title='Начинки' ingredients={mains}/>
       </ul>
     )
   }
