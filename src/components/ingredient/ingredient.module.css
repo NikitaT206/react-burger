@@ -4,10 +4,6 @@
   position: relative;
 }
 
-.ingredient:nth-of-type(2n) {
-  padding-right: 0;
-}
-
 .imageContainer {
   width: 240px;
   height: 120px;
@@ -39,7 +35,4 @@
   margin: 0;
   height: 48px;
   text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
 }

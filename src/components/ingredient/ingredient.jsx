@@ -13,11 +13,11 @@ export default class Ingredient extends React.Component {
         </div>
 
         <div className={`${ingredientStyles.priceContainer} pb-2`}>
-          <span className={ingredientStyles.price}>{this.props.item.price}</span>
+          <span className='text text_type_digits-default'>{this.props.item.price}</span>
           <CurrencyIcon/>
         </div>
 
-        <p className={ingredientStyles.ingredientName}>{this.props.item.name}</p>
+        <p className={`${ingredientStyles.ingredientName} text text_type_main-default`}>{this.props.item.name}</p>
 
         <Counter count={1} size='default'/>
 
