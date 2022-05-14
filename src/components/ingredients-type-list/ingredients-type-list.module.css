@@ -6,3 +6,11 @@
   list-style-type: none;
   margin: 0;
 }
+
+.listItem:first-of-type {
+  padding-top: 40px;
+}
+
+.listItem:last-of-type {
+  padding-bottom: 52px;
+}

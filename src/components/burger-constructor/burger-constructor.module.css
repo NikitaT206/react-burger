@@ -1,0 +1,65 @@
+.section {
+  flex-basis: calc(50% - 20px);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  max-height: calc(100vh - 344px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.list::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+  display: flex;
+  height: 20px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: #2F2F37;
+  margin-bottom: 96px;
+  margin-top: 96px;
+}
+  
+.list::-webkit-scrollbar-thumb {
+  background-color: #8585AD;
+  height: 44.51%;
+}
+
+.element {
+  display: flex;
+}
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flexContainer > svg {
+  width: 36px;
+  height: 36px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.order {
+  display: flex;
+  padding-right: 16px;
+  padding-bottom: 52px;
+  align-items: center;
+  justify-content: flex-end;
+}

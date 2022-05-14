@@ -14,7 +14,7 @@ export default class Tabs extends React.Component {
 
   render() {
     return (
-      <div className={`${tabsStyles.container} pb-10`}>
+      <div className={tabsStyles.container}>
 
         <Tab 
           value="one" 
