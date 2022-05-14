@@ -12,6 +12,40 @@
   overflow-x: hidden;
 }
 
+.element {
+  display: flex;
+}
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order {
+  display: flex;
+  padding-right: 16px;
+  padding-bottom: 52px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flexContainer > svg {
+  width: 36px;
+  height: 36px;
+}
+
+.icon > svg {
+  width: 24px;
+  height: 24px;
+}
+
 .list::-webkit-scrollbar {
   width: 8px;
   height: 0px;
@@ -28,38 +62,4 @@
 .list::-webkit-scrollbar-thumb {
   background-color: #8585AD;
   height: 44.51%;
-}
-
-.element {
-  display: flex;
-}
-
-.flexContainer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.flexContainer > svg {
-  width: 36px;
-  height: 36px;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon > svg {
-  width: 24px;
-  height: 24px;
-}
-
-.order {
-  display: flex;
-  padding-right: 16px;
-  padding-bottom: 52px;
-  align-items: center;
-  justify-content: flex-end;
 }

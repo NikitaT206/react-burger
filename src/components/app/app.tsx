@@ -12,7 +12,7 @@ function App() {
         <BurgerConstructor/>
       </main>
     </div>
-  );
+  )
 }
 
 export default App;

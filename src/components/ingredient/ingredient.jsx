@@ -14,7 +14,7 @@ export default class Ingredient extends React.Component {
 
         <div className={`${ingredientStyles.priceContainer} pb-2`}>
           <span className='text text_type_digits-default'>{this.props.item.price}</span>
-          <CurrencyIcon/>
+          <CurrencyIcon type='primary'/>
         </div>
 
         <p className={`${ingredientStyles.ingredientName} text text_type_main-default`}>{this.props.item.name}</p>

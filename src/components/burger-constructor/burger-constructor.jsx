@@ -13,6 +13,7 @@ export default class BurgerConstructor extends React.Component {
       <section className={`${burgerConstructorStyles.section} pt-25`}>
 
         <div className={`${burgerConstructorStyles.list} pl-4`}>
+
           <div className={`${burgerConstructorStyles.element} pl-8`}>
             <ConstructorElement
               type='top'
@@ -23,7 +24,6 @@ export default class BurgerConstructor extends React.Component {
             />
           </div>
           
-
           {others.map((item) => {
             return (
               <div className={burgerConstructorStyles.flexContainer} key={item._id}>
