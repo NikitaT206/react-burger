@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import burgerConstructorStyles from './burger-constructor.module.css'
-import { data } from '../../utils/data';
-import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import { data } from '../../utils/data'
+import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 
 const buns = data.filter(item => item.type === 'bun')
 const others = data.filter(item => item.type !== 'bun')
@@ -28,7 +28,7 @@ export default class BurgerConstructor extends React.Component {
             return (
               <div className={burgerConstructorStyles.flexContainer} key={item._id}>
                 <div className={burgerConstructorStyles.icon}>
-                  <DragIcon/>
+                  <DragIcon type='primary'/>
                 </div>
                 
                 <ConstructorElement 
@@ -56,7 +56,7 @@ export default class BurgerConstructor extends React.Component {
         <div className={`${burgerConstructorStyles.order} pt-10`}>
           <div className={`${burgerConstructorStyles.flexContainer} pr-10`}>
             <p className='text text_type_digits-medium'>{totalPrice}</p>
-            <CurrencyIcon/>
+            <CurrencyIcon type='primary'/>
           </div>
           <Button type="primary" size="large">Оформить заказ</Button>
         </div>
