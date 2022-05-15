@@ -1,46 +1,37 @@
-import React from 'react';
 import tabsStyles from './tabs.module.css'
-import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
+import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
+import { useState } from 'react'
 
-export default class Tabs extends React.Component {
+export default function Tabs() {
+  const [current, setCurrent] = useState('one')
 
-  state = {
-    current: 'one'
-  }
+  return (
+    <div className={tabsStyles.container}>
 
-  setCurrent = (current) => {
-    this.setState({current: current})
-  }
+      <Tab 
+        value="one" 
+        active={current === 'one'} 
+        onClick={() => setCurrent('one')}
+      >
+         Булки
+      </Tab>
 
-  render() {
-    return (
-      <div className={tabsStyles.container}>
+      <Tab 
+        value="two" 
+        active={current === 'two'} 
+        onClick={() => setCurrent('two')}
+      >
+        Соусы
+      </Tab>
 
-        <Tab 
-          value="one" 
-          active={this.state.current === 'one'} 
-          onClick={() => this.setCurrent('one')}
-        >
-          Булки
-        </Tab>
-
-        <Tab 
-          value="two" 
-          active={this.state.current === 'two'} 
-          onClick={() => this.setCurrent('two')}
-        >
-          Соусы
-        </Tab>
-
-        <Tab 
-          value="three" 
-          active={this.state.current === 'three'} 
-          onClick={() => this.setCurrent('three')}
-        >
-          Начинки
-        </Tab>
+      <Tab 
+        value="three" 
+        active={current === 'three'}
+        onClick={() => setCurrent('three')}
+      >
+        Начинки
+      </Tab>
       
-      </div>
-    )
-  }
+    </div>
+  )
 }
