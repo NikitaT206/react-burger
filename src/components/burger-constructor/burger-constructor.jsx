@@ -23,22 +23,22 @@ export default function BurgerConstructor() {
         </div>
         
         <div className={`${burgerConstructorStyles.fillings} pb-4 pt-4`}>
-        {fillings.map((item) => {
-          return (
-            <div className={burgerConstructorStyles.flexContainer} key={item._id}>
-              <div className={burgerConstructorStyles.icon}>
-                <DragIcon type='primary'/>
+          {fillings.map((item) => {
+            return (
+              <div className={burgerConstructorStyles.flexContainer} key={item._id}>
+                <div className={burgerConstructorStyles.icon}>
+                  <DragIcon type='primary'/>
+                </div>
+                  
+                <ConstructorElement 
+                  isLocked={false}
+                  text={item.name}
+                  price={item.price}
+                  thumbnail={item.image}
+                />
               </div>
-                
-              <ConstructorElement 
-                isLocked={false}
-                text={item.name}
-                price={item.price}
-                thumbnail={item.image}
-              />
-            </div>
-          )})
-        }
+            )})
+          }
         </div>
        
 
