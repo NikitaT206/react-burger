@@ -9,7 +9,7 @@ export default function IngredientsTypeList(props) {
       <h3 className='text text_type_main-medium pb-6'>{props.title}</h3>
       <ul className={`${ingredientsTypeListStyles.list} pr-2 pl-4`}>
         {props.ingredients.map(item => {
-          return <Ingredient item={item} key={item._id}/>
+          return <Ingredient item={item} key={item._id} onIngredientClick={props.onIngredientClick}/>
         })}
       </ul>
     </li>

@@ -3,8 +3,13 @@ import { Counter, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-c
 import { ingredientType } from '../../utils/types'
 
 export default function Ingredient(props) {
+
+  function onClickHandler() {
+    props.onIngredientClick(props.item)
+  }
+  
   return (
-    <li className={`${ingredientStyles.ingredient}`}>
+    <li className={`${ingredientStyles.ingredient}`} onClick={onClickHandler}>
 
       <div className={`${ingredientStyles.imageContainer} pl-4 pr-4 pb-2`}>
         <img className={ingredientStyles.image} src={props.item.image} alt={props.item.name}/>
