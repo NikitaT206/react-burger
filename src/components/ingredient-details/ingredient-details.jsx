@@ -1,6 +1,8 @@
 import ModalOverlay from '../modal-overlay/modal-overlay'
 import Modal from '../modal/modal'
 import ingredientDetailsStyles from './ingredient-details.module.css'
+import PropTypes from 'prop-types'
+import { ingredientType } from '../../utils/types'
 
 export default function IngredientDetails(props) {
   return (
@@ -37,6 +39,11 @@ export default function IngredientDetails(props) {
       </div>
       </Modal>
     </ModalOverlay>
-    
   )
 }
+
+IngredientDetails.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  ingredient: ingredientType.isRequired
+}
+

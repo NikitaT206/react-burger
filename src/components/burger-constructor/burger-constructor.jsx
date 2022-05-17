@@ -1,5 +1,7 @@
 import burgerConstructorStyles from './burger-constructor.module.css'
 import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
+import { ingredientType } from '../../utils/types'
+import PropTypes from 'prop-types'
 
 export default function BurgerConstructor(props) {
   const bun = props.bun
@@ -65,4 +67,11 @@ export default function BurgerConstructor(props) {
 
     </section>
   )
+}
+
+BurgerConstructor.propTypes = {
+  bun: ingredientType,
+  fillings: PropTypes.arrayOf(ingredientType),
+  totalPrice: PropTypes.number.isRequired,
+  onMakeOrder: PropTypes.func.isRequired
 }

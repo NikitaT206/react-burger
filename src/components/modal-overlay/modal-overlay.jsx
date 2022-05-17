@@ -1,6 +1,7 @@
 import modalOverlayStyles from './modal-overlay.module.css'
 import { useEffect, useState } from 'react'
-import ReactDOM from "react-dom" 
+import ReactDOM from "react-dom"
+import PropTypes from 'prop-types'
 
 export default function ModalOverlay(props) {
   const [container] = useState(() => {
@@ -27,6 +28,11 @@ export default function ModalOverlay(props) {
       container
     )
   )
+}
+
+ModalOverlay.propTypes = {
+  onOverlayClick: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired
 }
 
 

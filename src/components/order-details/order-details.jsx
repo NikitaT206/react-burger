@@ -2,6 +2,7 @@ import { CheckMarkIcon } from '@ya.praktikum/react-developer-burger-ui-component
 import ModalOverlay from '../modal-overlay/modal-overlay'
 import orderDetailsStyles from './order-details.module.css'
 import Modal from '../modal/modal'
+import PropTypes from 'prop-types'
 
 export default function OrderDetails(props) {
   return (
@@ -18,6 +19,10 @@ export default function OrderDetails(props) {
       </div>
       </Modal>
     </ModalOverlay>
-    
   )
 }
+
+OrderDetails.propTypes = {
+  onClose: PropTypes.func.isRequired
+}
+

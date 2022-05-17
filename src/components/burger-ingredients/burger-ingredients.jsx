@@ -1,6 +1,8 @@
 import IngredientsList from '../ingredients-list/ingredients-list'
 import Tabs from '../tabs/tabs'
 import burgerIngredientsStyles from './burger-ingredients.module.css'
+import PropTypes from 'prop-types'
+import { ingredientType } from '../../utils/types'
 
 export default function BurgerIngredients(props) {
   return (
@@ -15,4 +17,11 @@ export default function BurgerIngredients(props) {
       />
     </section>
   )
+}
+
+BurgerIngredients.propTypes = {
+  buns: PropTypes.arrayOf(ingredientType).isRequired,
+  sauces: PropTypes.arrayOf(ingredientType).isRequired,
+  mains: PropTypes.arrayOf(ingredientType).isRequired,
+  onIngredientClick: PropTypes.func.isRequired
 }

@@ -18,5 +18,6 @@ export default function IngredientsTypeList(props) {
 
 IngredientsTypeList.propTypes = {
   ingredients: PropTypes.arrayOf(ingredientType),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  onIngredientClick: PropTypes.func.isRequired
 }
