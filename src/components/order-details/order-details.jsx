@@ -1,5 +1,4 @@
 import { CheckMarkIcon } from '@ya.praktikum/react-developer-burger-ui-components'
-import ModalOverlay from '../modal-overlay/modal-overlay'
 import orderDetailsStyles from './order-details.module.css'
 import Modal from '../modal/modal'
 import PropTypes from 'prop-types'

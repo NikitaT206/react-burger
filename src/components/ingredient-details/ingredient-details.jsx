@@ -1,4 +1,3 @@
-import ModalOverlay from '../modal-overlay/modal-overlay'
 import Modal from '../modal/modal'
 import ingredientDetailsStyles from './ingredient-details.module.css'
 import PropTypes from 'prop-types'
