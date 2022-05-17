@@ -1,9 +1,13 @@
 .modal {
   background-color: #1C1C21;
   border-radius: 40px;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 720px;
   box-sizing: border-box;
+  z-index: 3;
 }
 
 .closeIconContainer {
@@ -12,4 +16,5 @@
   right: 40px;
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }

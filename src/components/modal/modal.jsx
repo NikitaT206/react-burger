@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import ModalOverlay from '../modal-overlay/modal-overlay'
 import ReactDOM from 'react-dom';
 
-export default function Modal(props) {
+export default function Modal({onCloseClick, children}) {
 
   const [container] = useState(() => {
     const element = document.createElement('div')
@@ -24,7 +24,7 @@ export default function Modal(props) {
   useEffect(() => {
     const closeByEscape = (event) => {
       if (event.key === 'Escape') {
-        props.onCloseClick()
+        onCloseClick()
       }
     }
     document.addEventListener('keydown', closeByEscape)
@@ -32,16 +32,17 @@ export default function Modal(props) {
   })
 
   return ReactDOM.createPortal(
-    <ModalOverlay onOverlayClick={props.onCloseClick}>
+    <>
+      <ModalOverlay onOverlayClick={onCloseClick}/>
       <div className={modalStyles.modal} onClick={(e) => e.stopPropagation()}>
-        <div className={modalStyles.closeIconContainer} onClick={props.onCloseClick}>
+        <div className={modalStyles.closeIconContainer} onClick={onCloseClick}>
           <CloseIcon type="primary"/>
         </div>
-      {props.children}
+      {children}
       </div>
-    </ModalOverlay>,
+    </>,
     container
-    )
+  )
 }
 
 Modal.propTypes = {

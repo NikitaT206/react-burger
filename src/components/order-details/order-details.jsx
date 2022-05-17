@@ -3,9 +3,9 @@ import orderDetailsStyles from './order-details.module.css'
 import Modal from '../modal/modal'
 import PropTypes from 'prop-types'
 
-export default function OrderDetails(props) {
+export default function OrderDetails({onClose}) {
   return (
-      <Modal onCloseClick={props.onClose}>
+      <Modal onCloseClick={onClose}>
         <div className={`${orderDetailsStyles.container} pt-30 pb-30`}>
         <p className={`${orderDetailsStyles.digits} text text_type_digits-large pb-8`}>034536</p>
         <p className='text text_type_main-medium pb-15'>идентификатор заказа</p>

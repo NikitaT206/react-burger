@@ -2,38 +2,24 @@ import Modal from '../modal/modal'
 import ingredientDetailsStyles from './ingredient-details.module.css'
 import PropTypes from 'prop-types'
 import { ingredientType } from '../../utils/types'
+import { IngredientDetail } from '../ingredient-detail/ingredient-detail'
 
-export default function IngredientDetails(props) {
+export default function IngredientDetails({onClose, ingredient, }) {
   return (
-      <Modal onCloseClick={props.onClose}>
+      <Modal onCloseClick={onClose}>
         <div className={`${ingredientDetailsStyles.container} pt-10 pr-10 pb-15 pl-10`}>
         <h3 className={`${ingredientDetailsStyles.title} text text_type_main-large`}>Детали ингредиента</h3>
-        <img className={`${ingredientDetailsStyles.image} pb-4`} alt='aaa' src={props.ingredient.image}/>
-        <p className={`${ingredientDetailsStyles.name} text text_type_main-medium pb-8`}>{props.ingredient.name}</p>
+        <img className={`${ingredientDetailsStyles.image} pb-4`} alt='aaa' src={ingredient.image}/>
+        <p className={`${ingredientDetailsStyles.name} text text_type_main-medium pb-8`}>{ingredient.name}</p>
 
-        <div className={ingredientDetailsStyles.details}>
+        <ul className={ingredientDetailsStyles.details}>
 
-          <div className={`${ingredientDetailsStyles.detail} pr-5`}>
-            <p className='text text_type_main-default text_color_inactive'>Калории,ккал</p>
-            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.calories}</p>
-          </div>
+          <IngredientDetail title='Калории,ккал' value={ingredient.calories}/>
+          <IngredientDetail title='Белки, г' value={ingredient.proteins}/>
+          <IngredientDetail title='Жиры, г' value={ingredient.fat}/>
+          <IngredientDetail title='Углеводы, г' value={ingredient.carbohydrates}/>
 
-          <div className={`${ingredientDetailsStyles.detail} pr-5`}>
-            <p className='text text_type_main-default text_color_inactive'>Белки, г</p>
-            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.proteins}</p>
-          </div>
-
-          <div className={`${ingredientDetailsStyles.detail} pr-5`}>
-            <p className='text text_type_main-default text_color_inactive'>Жиры, г</p>
-            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.fat}</p>
-          </div>
-
-          <div className={`${ingredientDetailsStyles.detail}`}>
-            <p className='text text_type_main-default text_color_inactive'>Углеводы, г</p>
-            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.carbohydrates}</p>
-          </div>
-        
-        </div>
+        </ul>
       </div>
       </Modal>
   )

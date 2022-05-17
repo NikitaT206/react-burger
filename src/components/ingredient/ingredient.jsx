@@ -3,25 +3,25 @@ import { Counter, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-c
 import { ingredientType } from '../../utils/types'
 import PropTypes from 'prop-types'
 
-export default function Ingredient(props) {
+export default function Ingredient({item, onIngredientClick}) {
 
   function onClickHandler() {
-    props.onIngredientClick(props.item)
+    onIngredientClick(item)
   }
   
   return (
     <li className={`${ingredientStyles.ingredient}`} onClick={onClickHandler}>
 
       <div className={`${ingredientStyles.imageContainer} pl-4 pr-4 pb-2`}>
-        <img className={ingredientStyles.image} src={props.item.image} alt={props.item.name}/>
+        <img className={ingredientStyles.image} src={item.image} alt={item.name}/>
       </div>
 
       <div className={`${ingredientStyles.priceContainer} pb-2`}>
-        <span className='text text_type_digits-default'>{props.item.price}</span>
+        <span className='text text_type_digits-default'>{item.price}</span>
         <CurrencyIcon type='primary'/>
       </div>
 
-      <p className={`${ingredientStyles.ingredientName} text text_type_main-default`}>{props.item.name}</p>
+      <p className={`${ingredientStyles.ingredientName} text text_type_main-default`}>{item.name}</p>
 
       <Counter count={1} size='default'/>
 

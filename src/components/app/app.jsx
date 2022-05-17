@@ -3,9 +3,9 @@ import AppHeader from '../app-header/app-header'
 import BurgerIngredients from '../burger-ingredients/burger-ingredients'
 import BurgerConstructor from '../burger-constructor/burger-constructor'
 import { useEffect, useState } from 'react'
-import { ingredintsUrl } from '../../utils/constants'
 import IngredientDetails from '../ingredient-details/ingredient-details'
 import OrderDetails from '../order-details/order-details'
+import { getIngregients } from '../../utils/burger-api'
 
 function App() {
   const [ingredients, setIngredients] = useState([])
@@ -34,18 +34,8 @@ function App() {
     setIngredient({})
   }
 
-  async function getIngredients() {
-    try {
-      const response = await fetch(ingredintsUrl)
-      const json = await response.json()
-      return setIngredients(json.data)
-    } catch (err) {
-      return console.log(err)
-    }
-  }
-
   useEffect(() => {
-    getIngredients()    
+    getIngregients().then(data => setIngredients(data.data))
   }, [])
 
   useEffect(() => {
