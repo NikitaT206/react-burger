@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export default function Modal(props) {
   return (
-    <div className={`${modalStyles.modal}`} onClick={(e) => e.stopPropagation()}>
+    <div className={modalStyles.modal} onClick={(e) => e.stopPropagation()}>
       <div className={modalStyles.closeIconContainer} onClick={props.onCloseClick}>
         <CloseIcon type="primary"/>
       </div>

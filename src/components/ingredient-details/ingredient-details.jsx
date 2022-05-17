@@ -16,23 +16,23 @@ export default function IngredientDetails(props) {
         <div className={ingredientDetailsStyles.details}>
 
           <div className={`${ingredientDetailsStyles.detail} pr-5`}>
-            <p className={`${ingredientDetailsStyles.detailText} text text_type_main-default text_color_inactive`}>Калории,ккал</p>
-            <p className={`${ingredientDetailsStyles.detailDigits} text text_type_digits-default`}>{props.ingredient.calories}</p>
+            <p className='text text_type_main-default text_color_inactive'>Калории,ккал</p>
+            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.calories}</p>
           </div>
 
           <div className={`${ingredientDetailsStyles.detail} pr-5`}>
-            <p className={`${ingredientDetailsStyles.detailText} text text_type_main-default text_color_inactive`}>Белки, г</p>
-            <p className={`${ingredientDetailsStyles.detailDigits} text text_type_digits-default`}>{props.ingredient.proteins}</p>
+            <p className='text text_type_main-default text_color_inactive'>Белки, г</p>
+            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.proteins}</p>
           </div>
 
           <div className={`${ingredientDetailsStyles.detail} pr-5`}>
-            <p className={`${ingredientDetailsStyles.detailText} text text_type_main-default text_color_inactive`}>Жиры, г</p>
-            <p className={`${ingredientDetailsStyles.detailDigits} text text_type_digits-default`}>{props.ingredient.fat}</p>
+            <p className='text text_type_main-default text_color_inactive'>Жиры, г</p>
+            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.fat}</p>
           </div>
 
           <div className={`${ingredientDetailsStyles.detail}`}>
-            <p className={`${ingredientDetailsStyles.detailText} text text_type_main-default text_color_inactive`}>Углеводы, г</p>
-            <p className={`${ingredientDetailsStyles.detailDigits} text text_type_digits-default`}>{props.ingredient.carbohydrates}</p>
+            <p className='text text_type_main-default text_color_inactive'>Углеводы, г</p>
+            <p className='text text_type_digits-default text_color_inactive'>{props.ingredient.carbohydrates}</p>
           </div>
         
         </div>
