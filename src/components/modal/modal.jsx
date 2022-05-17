@@ -1,16 +1,47 @@
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import modalStyles from './modal.module.css'
 import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react'
+import ModalOverlay from '../modal-overlay/modal-overlay'
+import ReactDOM from 'react-dom';
 
 export default function Modal(props) {
-  return (
-    <div className={modalStyles.modal} onClick={(e) => e.stopPropagation()}>
-      <div className={modalStyles.closeIconContainer} onClick={props.onCloseClick}>
-        <CloseIcon type="primary"/>
-      </div>
+
+  const [container] = useState(() => {
+    const element = document.createElement('div')
+    return element
+  })
+
+  useEffect(() => {
+    document.body.appendChild(container)
+
+    return () => {
+      document.body.removeChild(container)
+    }
+  })
+
+
+  useEffect(() => {
+    const closeByEscape = (event) => {
+      if (event.key === 'Escape') {
+        props.onCloseClick()
+      }
+    }
+    document.addEventListener('keydown', closeByEscape)
+    return () => document.removeEventListener('keydown', closeByEscape)
+  })
+
+  return ReactDOM.createPortal(
+    <ModalOverlay onOverlayClick={props.onCloseClick}>
+      <div className={modalStyles.modal} onClick={(e) => e.stopPropagation()}>
+        <div className={modalStyles.closeIconContainer} onClick={props.onCloseClick}>
+          <CloseIcon type="primary"/>
+        </div>
       {props.children}
-    </div>
-  )
+      </div>
+    </ModalOverlay>,
+    container
+    )
 }
 
 Modal.propTypes = {

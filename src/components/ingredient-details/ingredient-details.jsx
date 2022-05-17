@@ -6,7 +6,6 @@ import { ingredientType } from '../../utils/types'
 
 export default function IngredientDetails(props) {
   return (
-    <ModalOverlay onOverlayClick={props.onClose}>
       <Modal onCloseClick={props.onClose}>
         <div className={`${ingredientDetailsStyles.container} pt-10 pr-10 pb-15 pl-10`}>
         <h3 className={`${ingredientDetailsStyles.title} text text_type_main-large`}>Детали ингредиента</h3>
@@ -38,7 +37,6 @@ export default function IngredientDetails(props) {
         </div>
       </div>
       </Modal>
-    </ModalOverlay>
   )
 }
 

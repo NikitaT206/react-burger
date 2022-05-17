@@ -34,16 +34,6 @@ function App() {
     setIngredient({})
   }
 
-  useEffect(() => {
-    const closeByEscape = (event) => {
-      if (event.key === 'Escape') {
-        closeModal()
-      }
-    }
-    document.addEventListener('keydown', closeByEscape)
-    return () => document.removeEventListener('keydown', closeByEscape)
-  }, [])
-
   async function getIngredients() {
     try {
       const response = await fetch(ingredintsUrl)
