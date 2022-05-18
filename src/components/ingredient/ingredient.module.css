@@ -29,3 +29,19 @@
   height: 48px;
   text-align: center;
 }
+
+@media screen and (max-width: 1280px) {
+  .imageContainer {
+    width: 100%;
+    padding: 0;
+  }
+
+  .ingredient {
+    flex: 1 1 auto;
+  }
+
+  .ingredientName {
+    height: max-content;
+    max-height: max-content;
+  }
+}

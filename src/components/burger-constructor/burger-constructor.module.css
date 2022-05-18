@@ -70,3 +70,27 @@
   background-color: #8585AD;
   height: 59%;
 }
+
+@media screen and (max-width: 1280px) {
+  .section {
+    flex-basis: 50%;
+  }
+
+  .list {
+    padding-left: 0;
+  }
+
+  .element {
+    padding-right: 18px;
+  }
+
+  .fillings {
+    padding-right: 10px;
+  }
+
+  .flexContainer > div {
+    /* max-width: 80%; */
+    display: flex;
+    justify-self: stretch;
+  }
+}
