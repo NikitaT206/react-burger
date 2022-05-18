@@ -35,7 +35,9 @@ function App() {
   }
 
   useEffect(() => {
-    getIngregients().then(data => setIngredients(data.data))
+    getIngregients()
+      .then(data => setIngredients(data.data))
+      .catch(err => Promise.reject(err))
   }, [])
 
   useEffect(() => {
@@ -51,7 +53,7 @@ function App() {
     <div className={appStyles.app}>
       <AppHeader/>
 
-      {ingredients && ( 
+      {ingredients.length > 0 && ( 
         <main className={appStyles.flexContainer}>
           <BurgerIngredients 
             buns={buns} 
