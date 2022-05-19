@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  display: block;
+  align-self: center;
+  width: 480px;
+  height: 240px;
+}
+
+.name {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  max-width: 520px;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+  gap: 20px;
+}
