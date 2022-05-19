@@ -1,7 +1,8 @@
 import { BurgerIcon, ListIcon, ProfileIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import navigationStyles from './navigation.module.css'
 
-export default function Navigation() {
+export default function Navigation({toogleBurgerMenu, burgerMenuOpen}) {
+  const burgerIconClass = !burgerMenuOpen ? navigationStyles.burgerIcon : navigationStyles.burgerIconClose
   return (
     <nav className={navigationStyles.navigation}>
 
@@ -19,6 +20,8 @@ export default function Navigation() {
         <ProfileIcon type='secondary'/>
         <span className='text text_type_main-default ml-2'>Личный кабинет</span>
       </a>
+
+      <div className={burgerIconClass} onClick={toogleBurgerMenu}></div>
 
     </nav>
   )

@@ -1,0 +1,111 @@
+.burgerMenu {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1C1C21;
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  transition: .5s ease-in-out;
+}
+
+.burgerMenuHide {
+  composes: burgerMenu;
+  width: 0;
+}
+
+.title {
+  padding: 16px 0;
+  font-size: 50px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.flexContainer {
+  display: flex;
+  max-width: 95%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  background-image: url(../../images/close.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+}
+
+.links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 0;
+  text-decoration: none;
+  color: #F2F2F3;
+  max-width: max-content;
+}
+
+.linkText {
+  min-width: 240px;
+  font-size: 30px;
+  margin: 0;
+}
+
+.linkArrow {
+  background-image: url(../../images/linkArrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 12px;
+  height: 6px;
+  transform: rotate(180deg);
+  transition: .5s ease-in-out;
+}
+
+.linkArrowRotate {
+  composes: linkArrow;
+  transform: rotate(360deg);
+}
+
+.personalLink {
+  overflow: hidden;
+  cursor: pointer;
+  max-width: max-content;
+}
+
+.personalLinksHide {
+  display: flex;
+  flex-direction: column;
+  padding-left: 39px;
+  height: 0;
+  transition: .5s ease-in-out;
+}
+
+.personalLinks {
+  composes: personalLinksHide;
+  height: 170px;
+  transition: .5s ease-in-out;
+}
+
+.personalListLink {
+  font-size: 25px;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #F2F2F3;
+}
