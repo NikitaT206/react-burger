@@ -1,27 +1,23 @@
-import IngredientsList from '../ingredients-list/ingredients-list'
 import Tabs from '../tabs/tabs'
 import burgerIngredientsStyles from './burger-ingredients.module.css'
-import PropTypes from 'prop-types'
-import { ingredientType } from '../../utils/types'
+import { useSelector } from 'react-redux'
+import { useRef } from 'react'
+import IngredientsTypeList from '../ingredients-type-list/ingredients-type-list'
 
-export default function BurgerIngredients({buns, sauces, mains, onIngredientClick}) {
+export default function BurgerIngredients() {
+  const {buns, sauces, mains} = useSelector(state => state.ingredients)
+  const bunsRef = useRef()
+  const saucesRef = useRef()
+  const mainsRef = useRef()
   return (
     <section className={`${burgerIngredientsStyles.section} pt-10 mr-10`}>
       <h1 className='text text_type_main-large pb-5'>Соберите бургер</h1>
-      <Tabs/>
-      <IngredientsList 
-        buns={buns}
-        sauces={sauces} 
-        mains={mains} 
-        onIngredientClick={onIngredientClick}
-      />
+      <Tabs bunsRef={bunsRef} saucesRef={saucesRef} mainsRef={mainsRef}/>
+      <ul className={burgerIngredientsStyles.list}>
+        <IngredientsTypeList currentRef={bunsRef} title='Булки' ingredients={buns} id='buns'/>
+        <IngredientsTypeList currentRef={saucesRef} title='Соусы' ingredients={sauces} id='sauces'/>
+        <IngredientsTypeList currentRef={mainsRef}title='Начинки' ingredients={mains} id='mains'/>
+      </ul>
     </section>
   )
-}
-
-BurgerIngredients.propTypes = {
-  buns: PropTypes.arrayOf(ingredientType).isRequired,
-  sauces: PropTypes.arrayOf(ingredientType).isRequired,
-  mains: PropTypes.arrayOf(ingredientType).isRequired,
-  onIngredientClick: PropTypes.func.isRequired
 }
