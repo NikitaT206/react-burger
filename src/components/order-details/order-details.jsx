@@ -1,13 +1,16 @@
 import { CheckMarkIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import orderDetailsStyles from './order-details.module.css'
 import Modal from '../modal/modal'
-import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
+import { closeModal } from '../../sevrices/slices/mainSlice'
 
-export default function OrderDetails({onClose}) {
+export default function OrderDetails() {
+  const dispatch = useDispatch()
+  const {orderNumber} = useSelector(state => state.main)
   return (
-      <Modal onCloseClick={onClose}>
+      <Modal onCloseClick={() => dispatch(closeModal())}>
         <div className={`${orderDetailsStyles.container} pt-30 pb-30`}>
-        <p className={`${orderDetailsStyles.digits} text text_type_digits-large pb-8`}>034536</p>
+        <p className={`${orderDetailsStyles.digits} text text_type_digits-large pb-8`}>{orderNumber}</p>
         <p className='text text_type_main-medium pb-15'>идентификатор заказа</p>
         <div className={`${orderDetailsStyles.iconContainer} mb-15`}>
           <CheckMarkIcon type="primary"/>
@@ -17,9 +20,5 @@ export default function OrderDetails({onClose}) {
       </div>
       </Modal>
   )
-}
-
-OrderDetails.propTypes = {
-  onClose: PropTypes.func.isRequired
 }
 

@@ -1,12 +1,18 @@
 import Modal from '../modal/modal'
 import ingredientDetailsStyles from './ingredient-details.module.css'
-import PropTypes from 'prop-types'
-import { ingredientType } from '../../utils/types'
 import { IngredientDetail } from '../ingredient-detail/ingredient-detail'
+import { useDispatch, useSelector } from 'react-redux'
+import { closeModal } from '../../sevrices/slices/mainSlice'
 
-export default function IngredientDetails({onClose, ingredient, }) {
+export default function IngredientDetails() {
+  const dispatch = useDispatch()
+  const {ingredient} = useSelector(state => state.main)
+  const handleClose = () => {
+    dispatch(closeModal())
+  }
+
   return (
-      <Modal onCloseClick={onClose}>
+      <Modal onCloseClick={handleClose}>
         <div className={`${ingredientDetailsStyles.container} pt-10 pr-10 pb-15 pl-10`}>
         <h3 className={`${ingredientDetailsStyles.title} text text_type_main-large`}>Детали ингредиента</h3>
         <img className={`${ingredientDetailsStyles.image} pb-4`} alt='aaa' src={ingredient.image}/>
@@ -23,10 +29,5 @@ export default function IngredientDetails({onClose, ingredient, }) {
       </div>
       </Modal>
   )
-}
-
-IngredientDetails.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  ingredient: ingredientType.isRequired
 }
 
