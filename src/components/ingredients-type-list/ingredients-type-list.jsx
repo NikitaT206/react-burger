@@ -2,39 +2,36 @@ import Ingredient from '../ingredient/ingredient'
 import ingredientsTypeListStyles from './ingredients-type-list.module.css'
 import PropTypes from 'prop-types'
 import { ingredientType } from '../../utils/types'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { setCurrentTab } from '../../sevrices/slices/mainSlice'
+import { setCurrentTab } from '../../sevrices/slices/ingredientsSlice'
 
-export default function IngredientsTypeList({title, ingredients, id}) {
-  const ref = useRef()
+export default function IngredientsTypeList({title, ingredients, id, currentRef}) {
   const dispatch = useDispatch()
 
   useEffect(() => {
 
     const observer = new IntersectionObserver(([entry]) => {
-
+     
       if (entry.isIntersecting) {
-        dispatch(setCurrentTab(ref.current.id))
+        dispatch(setCurrentTab(entry.target.id))
       }
-    } , {
-      rootMargin: '40px',
-      threshold: [1, .75, 1],
-    })
 
-    if (ref.current) {
-      observer.observe(ref.current)
+    } , {threshold: [1, .75]})
+
+    if (currentRef.current) {
+      observer.observe(currentRef.current)
     } 
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
+      if (currentRef.current) {
+        observer.unobserve(currentRef.current)
       }
     }
-  }, [dispatch])
+  }, [currentRef, dispatch])
 
   return (
-    <li className={`${ingredientsTypeListStyles.listItem} pb-10`} id={id} ref={ref}>
+    <li className={`${ingredientsTypeListStyles.listItem} pb-10`} id={id} ref={currentRef}>
       <h3 className='text text_type_main-medium pb-6'>{title}</h3>
       <ul className={`${ingredientsTypeListStyles.list} pr-2 pl-4`}>
         {ingredients.map(item => {
@@ -46,6 +43,6 @@ export default function IngredientsTypeList({title, ingredients, id}) {
 }
 
 IngredientsTypeList.propTypes = {
-  ingredients: PropTypes.arrayOf(ingredientType),
+  ingredients: PropTypes.arrayOf(ingredientType.isRequired).isRequired,
   title: PropTypes.string.isRequired,
 }

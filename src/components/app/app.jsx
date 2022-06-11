@@ -2,17 +2,18 @@ import appStyles from './app.module.css'
 import AppHeader from '../app-header/app-header'
 import BurgerIngredients from '../burger-ingredients/burger-ingredients'
 import BurgerConstructor from '../burger-constructor/burger-constructor'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import IngredientDetails from '../ingredient-details/ingredient-details'
 import OrderDetails from '../order-details/order-details'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearIngredient, setIngredients, setIngredientsList } from '../../sevrices/slices/mainSlice'
-import { setIngredient } from '../../sevrices/slices/mainSlice'
+import { setIngredients, setIngredientsList } from '../../sevrices/slices/ingredientsSlice'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
 function App() {
-  const {ingredients, ingredient, orderDetails, ingredientDetails} = useSelector(state => state.main)
+  const {ingredients} = useSelector(state => state.ingredients)
+  const {orderDetails} = useSelector(state => state.orderDetail)
+  const {ingredientDetails} = useSelector(state => state.ingredientDetail)
 
   const dispatch = useDispatch()
 

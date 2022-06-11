@@ -1,11 +1,16 @@
 import tabsStyles from './tabs.module.css'
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentTab } from '../../sevrices/slices/mainSlice'
+import { setCurrentTab } from '../../sevrices/slices/ingredientsSlice'
 
-export default function Tabs() {
+export default function Tabs({bunsRef, saucesRef, mainsRef}) {
   const dispatch = useDispatch()
-  const {currentTab} = useSelector(state => state.main)
+  const {currentTab} = useSelector(state => state.ingredients)
+
+  function handleScroll(ref, tab) {
+    ref.current.scrollIntoView({ behavior: "smooth" })
+    dispatch(setCurrentTab(tab))
+  }
 
   return (
     <div className={tabsStyles.container}>
@@ -13,7 +18,7 @@ export default function Tabs() {
       <Tab 
         value="one" 
         active={currentTab === 'buns'} 
-        onClick={() => dispatch(setCurrentTab('buns'))}
+        onClick={() => handleScroll(bunsRef, 'buns')}
       >
          Булки
       </Tab>
@@ -21,7 +26,7 @@ export default function Tabs() {
       <Tab 
         value="two" 
         active={currentTab === 'sauces'} 
-        onClick={() => dispatch(setCurrentTab('sauces'))}
+        onClick={() => handleScroll(saucesRef, 'sauces')}
       >
         Соусы
       </Tab>
@@ -29,7 +34,7 @@ export default function Tabs() {
       <Tab 
         value="three" 
         active={currentTab === 'mains'} 
-        onClick={() => dispatch(setCurrentTab('mains'))}
+        onClick={() => handleScroll(mainsRef, 'mains')}
       >
         Начинки
       </Tab>

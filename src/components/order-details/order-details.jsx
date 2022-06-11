@@ -2,13 +2,13 @@ import { CheckMarkIcon } from '@ya.praktikum/react-developer-burger-ui-component
 import orderDetailsStyles from './order-details.module.css'
 import Modal from '../modal/modal'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeModal } from '../../sevrices/slices/mainSlice'
+import { closeOrderDetails } from '../../sevrices/slices/orderDetailSlice'
 
 export default function OrderDetails() {
   const dispatch = useDispatch()
-  const {orderNumber} = useSelector(state => state.main)
+  const {orderNumber} = useSelector(state => state.orderDetail)
   return (
-      <Modal onCloseClick={() => dispatch(closeModal())}>
+      <Modal onClose={() => dispatch(closeOrderDetails())}>
         <div className={`${orderDetailsStyles.container} pt-30 pb-30`}>
         <p className={`${orderDetailsStyles.digits} text text_type_digits-large pb-8`}>{orderNumber}</p>
         <p className='text text_type_main-medium pb-15'>идентификатор заказа</p>

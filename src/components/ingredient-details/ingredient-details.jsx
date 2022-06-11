@@ -2,17 +2,19 @@ import Modal from '../modal/modal'
 import ingredientDetailsStyles from './ingredient-details.module.css'
 import { IngredientDetail } from '../ingredient-detail/ingredient-detail'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeModal } from '../../sevrices/slices/mainSlice'
+import { clearIngredient, closeIngredientDetails } from '../../sevrices/slices/ingredientDetailSlice'
 
 export default function IngredientDetails() {
   const dispatch = useDispatch()
-  const {ingredient} = useSelector(state => state.main)
-  const handleClose = () => {
-    dispatch(closeModal())
+  const {ingredient} = useSelector(state => state.ingredientDetail)
+
+  function onCLoseHandler() {
+    dispatch(clearIngredient())
+    dispatch(closeIngredientDetails())
   }
 
   return (
-      <Modal onCloseClick={handleClose}>
+      <Modal onClose={onCLoseHandler}>
         <div className={`${ingredientDetailsStyles.container} pt-10 pr-10 pb-15 pl-10`}>
         <h3 className={`${ingredientDetailsStyles.title} text text_type_main-large`}>Детали ингредиента</h3>
         <img className={`${ingredientDetailsStyles.image} pb-4`} alt='aaa' src={ingredient.image}/>
