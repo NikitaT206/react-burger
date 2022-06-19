@@ -70,3 +70,24 @@
   background-color: #8585AD;
   height: 59%;
 }
+
+.bunPlugTop {
+  margin: 0 16px 0 32px;
+  display: flex;
+  border-radius: 88px 88px 40px 40px;
+  background: #2f2f37;
+  min-height: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bunPlugBottom {
+  composes: bunPlugTop;
+  border-radius: 40px 40px 88px 88px;
+}
+
+.ingredientsPlug {
+  margin: 0 8px 0 32px;
+  composes: bunPlugTop;
+  border-radius: 40px;
+}

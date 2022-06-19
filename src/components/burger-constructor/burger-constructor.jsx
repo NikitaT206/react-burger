@@ -21,7 +21,8 @@ export default function BurgerConstructor() {
     accept: 'ingredient',
     drop(item) {
       onDropHandler(item)
-    }
+    },
+    
   })
 
   function onMakeOrder() {
@@ -45,7 +46,7 @@ export default function BurgerConstructor() {
 
       <div className={`${burgerConstructorStyles.list} pl-4`} ref={dropTarget}>
 
-        {constructorBun && (
+        {constructorBun ? (
           <div className={`${burgerConstructorStyles.element} pl-8`} >
             <ConstructorElement
               type='top'
@@ -55,16 +56,17 @@ export default function BurgerConstructor() {
               thumbnail={constructorBun.image}
             />
           </div>
-        )}
+        ) : <div className={`${burgerConstructorStyles.bunPlugTop} text text_type_main-medium`}>Булка</div>}
         
         <div className={`${burgerConstructorStyles.fillings} pb-4 pt-4`}>
-          {constructorIngredients.map((item, index) => {
-            return <ContructorIngredient item={item} index={index} key={item.key}/>
-          })
-          }
+          {constructorIngredients.length ? (
+            constructorIngredients.map((item, index) => {
+              return <ContructorIngredient item={item} index={index} key={item.key}/>
+            })
+          ) : <div className={`${burgerConstructorStyles.ingredientsPlug} text text_type_main-medium`}>Ингредиенты</div>}
         </div>
        
-        {constructorBun && (
+        {constructorBun ? (
           <div className={`${burgerConstructorStyles.element} pl-8`}>
             <ConstructorElement
               type='bottom'
@@ -74,7 +76,7 @@ export default function BurgerConstructor() {
               thumbnail={constructorBun.image}
             />
           </div>
-        )}
+        ) : <div className={`${burgerConstructorStyles.bunPlugBottom} text text_type_main-medium`}>Булка</div>}
           
       </div>
 
