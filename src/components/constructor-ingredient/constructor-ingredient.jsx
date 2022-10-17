@@ -1,8 +1,8 @@
+import styles from './constructor-ingredient.module.css'
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
-import constructorIngredientStyles from './constructor-ingredient.module.css'
 import { useDrag, useDrop } from 'react-dnd'
 import { useSelector, useDispatch } from 'react-redux'
-import { setConstructorIngredients } from '../../sevrices/slices/constructorIngredientsSlice'
+import { setConstructorIngredients } from '../../services/slices/constructorIngredientsSlice'
 
 export function ContructorIngredient({item, index}) {
   const {constructorIngredients} = useSelector(state => state.burgerConstructor)
@@ -33,8 +33,8 @@ export function ContructorIngredient({item, index}) {
   }
 
   return (
-    <div className={constructorIngredientStyles.flexContainer} ref={dropRef} draggable>
-      <div className={constructorIngredientStyles.icon} ref={dragRef}>
+    <div className={styles.flexContainer} ref={dropRef} draggable>
+      <div className={styles.icon} ref={dragRef}>
         <DragIcon type='primary'/>
       </div>
         

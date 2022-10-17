@@ -4,8 +4,9 @@ import App from './components/app/app';
 import reportWebVitals from './reportWebVitals';
 import thunk from 'redux-thunk';
 import { configureStore } from '@reduxjs/toolkit';
-import { rootReducer } from './sevrices/reducers';
+import { rootReducer } from './services/reducers';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = configureStore({
   reducer: rootReducer,
@@ -16,9 +17,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
 );
 
 reportWebVitals();

@@ -1,0 +1,51 @@
+.container {
+  padding-top: 180px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.form {
+  margin: 0 auto;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.form > div {
+  width: 100%;
+}
+
+.form > div > div {
+  width: 100%;
+}
+
+.form > button {
+  align-self: center;
+}
+
+.links {
+  margin: 0 auto;
+  max-width: 480px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text {
+  display: flex;
+  margin: 0;
+  gap: 8px;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #4C4CFF;
+}

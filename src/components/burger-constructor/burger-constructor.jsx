@@ -1,16 +1,17 @@
-import burgerConstructorStyles from './burger-constructor.module.css'
+import styles from './burger-constructor.module.css'
 import { Button, ConstructorElement, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { useCallback } from 'react'
-import { getOrderNumber, setOrderDetails } from '../../sevrices/slices/orderDetailSlice'
+import { getOrderNumber, setOrderDetails } from '../../services/slices/orderDetailSlice'
 import { useDrop } from 'react-dnd'
-import {setConstructorIngredients, setCostructorBun} from '../../sevrices/slices/constructorIngredientsSlice'
+import {setConstructorIngredients, setCostructorBun} from '../../services/slices/constructorIngredientsSlice'
 import { ContructorIngredient } from '../constructor-ingredient/constructor-ingredient'
 import { v4 as uuidv4 } from 'uuid';
 
 export default function BurgerConstructor() {
   const {constructorIngredients, constructorBun} = useSelector(state => state.burgerConstructor)
   const dispatch = useDispatch()
+  
   const onDropHandler = (item) => {
     item.type === 'bun' ?
     dispatch(setCostructorBun(item)) :
@@ -21,8 +22,7 @@ export default function BurgerConstructor() {
     accept: 'ingredient',
     drop(item) {
       onDropHandler(item)
-    },
-    
+    }
   })
 
   function onMakeOrder() {
@@ -42,12 +42,12 @@ export default function BurgerConstructor() {
   }, [constructorIngredients, constructorBun])
 
   return (
-    <section className={`${burgerConstructorStyles.section} pt-25`}>
+    <section className={`${styles.section} pt-25`}>
 
-      <div className={`${burgerConstructorStyles.list} pl-4`} ref={dropTarget}>
+      <div className={`${styles.list} pl-4`} ref={dropTarget}>
 
         {constructorBun ? (
-          <div className={`${burgerConstructorStyles.element} pl-8`} >
+          <div className={`${styles.element} pl-8`} >
             <ConstructorElement
               type='top'
               isLocked={true}
@@ -56,18 +56,18 @@ export default function BurgerConstructor() {
               thumbnail={constructorBun.image}
             />
           </div>
-        ) : <div className={`${burgerConstructorStyles.bunPlugTop} text text_type_main-medium`}>Булка</div>}
+        ) : <div className={`${styles.bunPlugTop} text text_type_main-medium`}>Булка</div>}
         
-        <div className={`${burgerConstructorStyles.fillings} pb-4 pt-4`}>
+        <div className={`${styles.fillings} pb-4 pt-4`}>
           {constructorIngredients.length ? (
             constructorIngredients.map((item, index) => {
               return <ContructorIngredient item={item} index={index} key={item.key}/>
             })
-          ) : <div className={`${burgerConstructorStyles.ingredientsPlug} text text_type_main-medium`}>Ингредиенты</div>}
+          ) : <div className={`${styles.ingredientsPlug} text text_type_main-medium`}>Ингредиенты</div>}
         </div>
        
         {constructorBun ? (
-          <div className={`${burgerConstructorStyles.element} pl-8`}>
+          <div className={`${styles.element} pl-8`}>
             <ConstructorElement
               type='bottom'
               isLocked={true}
@@ -76,12 +76,12 @@ export default function BurgerConstructor() {
               thumbnail={constructorBun.image}
             />
           </div>
-        ) : <div className={`${burgerConstructorStyles.bunPlugBottom} text text_type_main-medium`}>Булка</div>}
+        ) : <div className={`${styles.bunPlugBottom} text text_type_main-medium`}>Булка</div>}
           
       </div>
 
-      <div className={`${burgerConstructorStyles.order} pt-10`}>
-        <div className={`${burgerConstructorStyles.flexContainer} pr-10`}>
+      <div className={`${styles.order} pt-10`}>
+        <div className={`${styles.flexContainer} pr-10`}>
           <p className='text text_type_digits-medium'>{setTotalPrice()}</p>
           <CurrencyIcon type='primary'/>
         </div>

@@ -1,7 +1,7 @@
-import tabsStyles from './tabs.module.css'
+import styles from './tabs.module.css'
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentTab } from '../../sevrices/slices/ingredientsSlice'
+import { setCurrentTab } from '../../services/slices/ingredientsSlice'
 
 export default function Tabs({bunsRef, saucesRef, mainsRef}) {
   const dispatch = useDispatch()
@@ -13,7 +13,7 @@ export default function Tabs({bunsRef, saucesRef, mainsRef}) {
   }
 
   return (
-    <div className={tabsStyles.container}>
+    <div className={styles.container}>
 
       <Tab 
         value="one" 

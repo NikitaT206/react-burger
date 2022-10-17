@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form > div {
+  width: 100%;
+}
+
+.form > div > div {
+  width: 100%;
+}
+
+.form > div > div > input {
+  color: #8585AD;
+}
